@@ -1,7 +1,7 @@
 <?php
 require '../../database/connect.php';
 
-$conn = new mysqli($servername, $username, $password, $db);
+// $conn = new mysqli($servername, $username, $password, $db);
 session_start();
 
 if ($_SESSION['role'] != 'mahasiswa') {
@@ -44,7 +44,7 @@ include 'layouts/header.php';
                          <td><?= $mk["semester"] ?></td>
                          <td><?= $mk["nama"] ?></td>
                          <form action="function.php" method="POST">
-                              <input type="hidden" name="nim_mhs" value="<?=$_SESSION['nim']?>">
+                              <input type="hidden" name="nim_mhs" value="<?= $_SESSION['nim'] ?>">
                               <input type="hidden" name="kode_mk" value="<?= $mk['kode_mk'] ?>">
                               <td>
                                    <button type="submit" name="ambil_mk"> Ambil MK</button>

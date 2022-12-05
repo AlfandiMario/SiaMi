@@ -96,7 +96,7 @@ if (isset($_POST["login"])) {
 <body class="text-center">
 
   <div class="login-box">
-    <h2>Login SiaLite</h2>
+    <h2>Login SiaMi</h2>
     <form action="" method="POST">
       <div class="user-box">
         <input type="text" name="nim_nip" required="">

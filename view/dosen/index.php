@@ -15,7 +15,7 @@ if ($_SESSION['role'] != 'dosen') {
      <meta name="description" content="">
      <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
      <meta name="generator" content="Hugo 0.84.0">
-     <title>SiaLite</title>
+     <title>SiaMi</title>
 
      <!-- Bootstrap core CSS -->
      <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@ if ($_SESSION['role'] != 'dosen') {
           <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none mx-auto">
                     <i class="bi bi-boxes"></i>
-                    <span class="fs-4">SiaLite</span>
+                    <span class="fs-4">SiaMi</span>
                </a>
                <hr>
                <ul class="nav nav-pills flex-column mb-auto">
@@ -92,6 +92,7 @@ if ($_SESSION['role'] != 'dosen') {
      <script src="sidebars.js"></script>
 </body>
 <?php
-include'../mahasiswa/layouts/footer.php';
+include '../mahasiswa/layouts/footer.php';
 ?>
+
 </html>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2022 at 05:51 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.3.27
+-- Generation Time: Dec 05, 2022 at 08:16 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `siportal_kel3`
+-- Database: `si-uas`
 --
 
 -- --------------------------------------------------------
@@ -84,7 +84,7 @@ CREATE TABLE `mahasiswa` (
   `id` int(11) NOT NULL,
   `nim` varchar(255) NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `angkatan` int(11) NOT NULL,
+  `semester` int(3) NOT NULL,
   `role_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -92,7 +92,7 @@ CREATE TABLE `mahasiswa` (
 -- Dumping data for table `mahasiswa`
 --
 
-INSERT INTO `mahasiswa` (`id`, `nim`, `nama`, `angkatan`, `role_id`) VALUES
+INSERT INTO `mahasiswa` (`id`, `nim`, `nama`, `semester`, `role_id`) VALUES
 (1, 'I0720013', 'Baharuddin Dias', 2020, 3),
 (2, 'I0720006', 'Asri Aziziyah', 2020, 3),
 (3, 'I0720037', 'Mario Alfandi Wirawan', 2020, 3),
@@ -111,24 +111,26 @@ CREATE TABLE `mk` (
   `kode_mk` varchar(255) NOT NULL,
   `nama_mk` varchar(255) NOT NULL,
   `NIP_pengampu` varchar(255) NOT NULL,
-  `semester` int(11) NOT NULL
+  `semester` int(11) NOT NULL,
+  `kategori` varchar(255) NOT NULL,
+  `bobot_sks` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mk`
 --
 
-INSERT INTO `mk` (`id`, `kode_mk`, `nama_mk`, `NIP_pengampu`, `semester`) VALUES
-(1, 'EE1504-19', 'Mesin Listrik Lanjut', '199203152019031017', 5),
-(8, 'EE502-19', 'Mekatronika ', '198904242019031013', 5),
-(9, 'EE503-19', 'Praktikum Telekomunikasi Dasar ', '197705132009121004', 5),
-(10, 'EE504-19', 'Praktikum Sistem Kendali ', '197609232006041004', 5),
-(11, 'EE505-19', 'Proyek Kreatif II ', '198904242019031013', 5),
-(12, 'EE3501-19', 'Antena dan Propagasi ', '1970062520200801', 5),
-(13, 'EE3502-19', 'Sistem Tertanam dan Periferal ', '197711162005011008', 5),
-(14, 'EE3503-19', 'Pengolahan Isyarat Digital ', '197705132009121004', 5),
-(15, 'EE3504-19', 'Algoritma dan Struktur Data ', '197711162005011008', 5),
-(16, 'EE3505-19', 'Sistem Informasi ', '198705062019031009', 5);
+INSERT INTO `mk` (`id`, `kode_mk`, `nama_mk`, `NIP_pengampu`, `semester`, `kategori`, `bobot_sks`) VALUES
+(1, 'EE1504-19', 'Mesin Listrik Lanjut', '199203152019031017', 5, '', 0),
+(8, 'EE502-19', 'Mekatronika ', '198904242019031013', 5, '', 0),
+(9, 'EE503-19', 'Praktikum Telekomunikasi Dasar ', '197705132009121004', 5, '', 0),
+(10, 'EE504-19', 'Praktikum Sistem Kendali ', '197609232006041004', 5, '', 0),
+(11, 'EE505-19', 'Proyek Kreatif II ', '198904242019031013', 5, '', 0),
+(12, 'EE3501-19', 'Antena dan Propagasi ', '1970062520200801', 5, '', 0),
+(13, 'EE3502-19', 'Sistem Tertanam dan Periferal ', '197711162005011008', 5, '', 0),
+(14, 'EE3503-19', 'Pengolahan Isyarat Digital ', '197705132009121004', 5, '', 0),
+(15, 'EE3504-19', 'Algoritma dan Struktur Data ', '197711162005011008', 5, '', 0),
+(16, 'EE3505-19', 'Sistem Informasi ', '198705062019031009', 5, '', 0);
 
 -- --------------------------------------------------------
 
@@ -207,6 +209,19 @@ INSERT INTO `mk_diambil` (`id`, `nim_mhs`, `kode_mk`, `nilai_mk`) VALUES
 (67, 'I0720003', 'EE503-19', 0),
 (68, 'I0720003', 'EE504-19', 0),
 (69, 'I0720003', 'EE505-19', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pa`
+--
+
+CREATE TABLE `pa` (
+  `id` int(11) NOT NULL,
+  `nip` varchar(255) NOT NULL,
+  `nim` varchar(255) NOT NULL,
+  `status_krs` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -292,6 +307,12 @@ ALTER TABLE `mk_diambil`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `pa`
+--
+ALTER TABLE `pa`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
@@ -336,6 +357,12 @@ ALTER TABLE `mk`
 --
 ALTER TABLE `mk_diambil`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+
+--
+-- AUTO_INCREMENT for table `pa`
+--
+ALTER TABLE `pa`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `role`

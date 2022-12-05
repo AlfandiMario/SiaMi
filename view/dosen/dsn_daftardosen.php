@@ -1,5 +1,5 @@
 <?php
-require'../../database/connect.php';
+require '../../database/connect.php';
 
 session_start();
 if ($_SESSION['role'] != 'dosen') {
@@ -40,7 +40,7 @@ $daftardosen = mysqli_query($conn, "SELECT * FROM dosen ORDER BY nama");
           <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none mx-auto">
                     <i class="bi bi-boxes"></i>
-                    <span class="fs-4">SiaLite</span>
+                    <span class="fs-4">SiaMi</span>
                </a>
                <hr>
                <ul class="nav nav-pills flex-column mb-auto">

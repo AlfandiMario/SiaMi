@@ -12,7 +12,7 @@ body {
   background: #ffffff;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap");
+/* @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap"); */
 
 * {
   margin: 0;
@@ -21,10 +21,8 @@ body {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-  font-family: "arial", heletica, sans-serif;
   font-size: 12px;
   background: #2980b9 url("https://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png") repeat 0 0;
   -webkit-animation: 10s linear 0s normal none infinite animate;
@@ -96,7 +94,7 @@ button {
   width: 400px;
   padding: 40px;
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.5);
+  background: rgb(255, 255, 255);
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, -0.6);
   border-radius: 10px;
@@ -105,7 +103,7 @@ button {
 .login-box h2 {
   margin: 0 0 50px;
   padding: 0;
-  color: #fff;
+  color: rgb(0, 0, 0);
   text-align: center;
 }
 
@@ -117,10 +115,10 @@ button {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
-  color: #fff;
+  color: rgb(0, 0, 0);
   margin-bottom: 30px;
   border: none;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid rgb(0, 0, 0);
   outline: none;
   background: transparent;
 }
@@ -131,7 +129,7 @@ button {
   left: 0;
   padding: 10px 0;
   font-size: 16px;
-  color: #fff;
+  color: rgb(0, 0, 0);
   pointer-events: none;
   transition: 0.5s;
 }
@@ -145,7 +143,7 @@ button {
 }
 
 .login-box a {
-  color: #03e9f4;
+  color: #000000;
 }
 
 .login-box a:hover {
@@ -156,7 +154,7 @@ button {
 }
 
 .login-box p {
-  color: #ffffff;
+  color: #000000;
 }
 p {
   margin-top: 1rem;
@@ -279,7 +277,7 @@ p {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
-  color: #03e9f4;
+  color: #000000;
   font-size: 16px;
   text-decoration: none;
   text-transform: uppercase;
@@ -289,7 +287,7 @@ p {
 }
 
 .login-box button:hover {
-  background: #03e9f4;
+  background: #2d4e9c;
   color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
