@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db = "siportal_kel3";
+$db = "si-uas";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $db);
 

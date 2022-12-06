@@ -46,6 +46,7 @@ include 'layouts/header.php';
                          <form action="function.php" method="POST">
                               <input type="hidden" name="nim_mhs" value="<?= $_SESSION['nim'] ?>">
                               <input type="hidden" name="kode_mk" value="<?= $mk['kode_mk'] ?>">
+                              <input type="hidden" name="kategori" value="<?= $mk['kategori'] ?>">
                               <td>
                                    <button type="submit" name="ambil_mk"> Ambil MK</button>
                               </td>

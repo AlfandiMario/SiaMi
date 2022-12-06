@@ -4,9 +4,31 @@ require '../../database/connect.php';
 if(isset($_POST['ambil_mk'])){
     $nim = $_POST['nim_mhs'];
     $kode_mk =$_POST['kode_mk'];
-    $hasil_cek = cek($nim,$kode_mk);
+    $kbk =$_POST['kategori'];
+    $cek2 = cek_kategori($kbk, $nim);
+    if ($cek2) {
+        $hasil_cek = cek($nim,$kode_mk);
     if($hasil_cek){
         tambah($nim,$kode_mk);
+    }
+    } else {
+
+    } 
+}
+
+function cek_kategori($kbk, $nim){
+    global $conn;
+    if($kbk == Null ){
+    return true;
+        }
+    else{
+    $cek_kbk = mysqli_query($conn, "SELECT kbk FROM mahasiswa WHERE nim = '$nim'");
+    $ya = mysqli_fetch_array($cek_kbk);
+        if($ya["kbk"] == $kbk){
+            return true;
+            }
+            echo "<script>alert('Bukan KBK Anda'); document.location.href = 'javascript:history.back()';</script>";
+            return;
     }
 }
 
