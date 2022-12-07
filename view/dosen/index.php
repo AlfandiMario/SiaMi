@@ -56,6 +56,12 @@ if ($_SESSION['role'] != 'dosen') {
                          </a>
                     </li class="nav-item">
                     <li class="nav-item">
+                         <a href="dsn_daftarmhs.php" class="nav-link link-dark">
+                              <i class="bi bi-person-lines-fill"></i>
+                              Daftar Mahasiswa
+                         </a>
+                    </li class="nav-item">
+                    <li class="nav-item">
                          <a href="dsn_editnilai.php" class="nav-link link-dark">
                               <i class="bi bi-journal-bookmark-fill"></i>
                               Input Nilai Mahasiswa

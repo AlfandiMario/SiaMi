@@ -20,7 +20,7 @@ if ($_SESSION['role'] != 'mahasiswa') {
      <meta name="description" content="">
      <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
      <meta name="generator" content="Hugo 0.84.0">
-     <title>SiaLite</title>
+     <title>SiaMi</title>
 
      <!-- Bootstrap core CSS -->
      <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -60,6 +60,12 @@ if ($_SESSION['role'] != 'mahasiswa') {
                          </a>
                     </li class="nav-item">
                     <li class="nav-item">
+                         <a href="daftarmhs.php" class="nav-link link-dark">
+                              <i class="bi bi-person-lines-fill"></i>
+                              Daftar Mahasiswa
+                         </a>
+                    </li class="nav-item">
+                    <li class="nav-item">
                          <a href="lihatnilai.php" class="nav-link link-dark">
                               <i class="bi bi-journal-bookmark-fill"></i>
                               Lihat Nilai
@@ -86,7 +92,7 @@ if ($_SESSION['role'] != 'mahasiswa') {
 
           <div class="container">
                <header style="text-align:center; margin-top:20%">
-                    <h2>Selamat Datang di SiaLite, <?= $_SESSION["nama"]; ?>!</h2>
+                    <h2>Selamat Datang di SiaMi, <?= $_SESSION["nama"]; ?>!</h2>
                     <p>Tetap semangat dan semoga harimu menyenangkan :)</p>
                </header>
           </div>

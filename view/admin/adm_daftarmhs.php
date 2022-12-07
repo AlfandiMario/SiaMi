@@ -40,7 +40,7 @@ include 'layouts/header.php';
                                    <td><?= $i++ ?></td>
                                    <td><?= $mhs["nim"] ?></td>
                                    <td><?= $mhs["nama"] ?></td>
-                                   <td><?= $mhs["angkatan"] ?></td>
+                                   <td><?= $mhs["semester"] ?></td>
                                    
                                    <!-- <td></td> -->
                                    <td>

@@ -12,7 +12,7 @@ if (isset($_GET['nim'])) {
      while ($mhs = mysqli_fetch_array($daftarmahasiswa)) {
         $nama_mhs = $mhs['nama'];
         $nip = $mhs['nim'];
-        $angkatan = $mhs['angkatan'];
+        $angkatan = $mhs['semester'];
      };
 }
 // Untuk menampilkan daftar mata kuliah dan nama pengampu dengan Foreign Key NIP dosen

@@ -22,7 +22,7 @@ $daftarmk = mysqli_query($conn, "SELECT * FROM mk LEFT JOIN dosen ON mk.NIP_peng
      <meta name="description" content="">
      <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
      <meta name="generator" content="Hugo 0.84.0">
-     <title>Daftar Mata Kuliah</title>
+     <title>SiaMi</title>
 
      <!-- Bootstrap core CSS -->
      <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -61,6 +61,12 @@ $daftarmk = mysqli_query($conn, "SELECT * FROM mk LEFT JOIN dosen ON mk.NIP_peng
                          <a href="dsn_daftardosen.php" class="nav-link link-dark">
                               <i class="bi bi-person-lines-fill"></i>
                               Daftar Dosen
+                         </a>
+                    </li class="nav-item">
+                    <li class="nav-item">
+                         <a href="dsn_daftarmhs.php" class="nav-link link-dark">
+                              <i class="bi bi-person-lines-fill"></i>
+                              Daftar Mahasiswa
                          </a>
                     </li class="nav-item">
                     <li class="nav-item">
