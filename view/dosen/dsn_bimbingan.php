@@ -1,9 +1,17 @@
 <?php
+require '../../database/connect.php';
+
+
 session_start();
+$nip = $_SESSION["nip"];
 if ($_SESSION['role'] != 'dosen') {
      $_SESSION['halaman'] = "dosen";
      header("Location: ../kick.php");
 };
+
+$daftarbimbingan = mysqli_query($conn, "SELECT dosen.*, pa.*, mahasiswa.*  FROM pa
+INNER JOIN dosen ON pa.nip = dosen.nip INNER JOIN mahasiswa ON pa.nim = mahasiswa.nim
+WHERE dosen.nip = $nip;");
 ?>
 
 <!doctype html>
@@ -22,10 +30,11 @@ if ($_SESSION['role'] != 'dosen') {
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+     <!-- alt="..." on <img> element -->
 
 
      <!-- Custom styles for this template -->
-     <link href="../../css/style.css" rel="stylesheet">
+     <link href="../../css/dsn_editnilai.css" rel="stylesheet">
 </head>
 
 <body>
@@ -87,24 +96,45 @@ if ($_SESSION['role'] != 'dosen') {
           </div>
           <!-- Agar Sidebar Tingginya Full -->
           <div class="b-example-divider"></div>
-
-          <div class="container">
-               <header style="text-align:center; margin-top:20%">
-                    <h2>Selamat Datang di SiaLite, <?= $_SESSION["nama"]; ?>!</h2>
-                    <p>Tetap semangat dan semoga harimu menyenangkan :)</p>
+          <div class="container-sm">
+               <header>
+                    <h3>Daftar Mahasiswa Bimbingan</h3>
                </header>
+               <hr>
+               <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                         <tr>
+                              <th scope="col">No</th>
+                              <th scope="col">NIM</th>
+                              <th scope="col">Nama</th>
+                              <th scope="col">Status KRS</th>
+                              <th scope="col">Detail KRS</th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                         <?php
+                         $i = 1;
+
+                         while ($bimbingan = mysqli_fetch_array($daftarbimbingan)) {
+                            //var_dump($bimbingan);
+                         ?> 
+                              <form action="" method="POST" enctype="multipart/form-data">
+                                   <tr> 
+                                        <td><?= $i++ ?></td>
+                                        <td><?= $bimbingan["nim"] ?></td>
+                                        <td><?= $bimbingan["nama"] ?></td>
+                                        <td><?= $bimbingan["status_krs"] ?></td>
+                                        <td><button type="submit" name="submit"><a 
+                                            href="dsn_bimbingankrs.php?nim=<?= $bimbingan["nim"]; ?>& nama=<?= $bimbingan["nama"]; ?>"
+                                                >Lihat</a></button></td>
+                                        
+                                    </tr>
+                              </form>
+                         <?php
+                         } ?>
+                    </tbody>
+               </table>
           </div>
-
-
      </main>
 
-
-     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-     <script src="sidebars.js"></script>
 </body>
-<?php
-include '../mahasiswa/layouts/footer.php';
-?>
-
-</html>

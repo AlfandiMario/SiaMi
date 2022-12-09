@@ -70,6 +70,12 @@ $daftarmk = mysqli_query($conn, "SELECT * FROM mk LEFT JOIN dosen ON mk.NIP_peng
                          </a>
                     </li class="nav-item">
                     <li class="nav-item">
+                         <a href="dsn_bimbingan.php" class="nav-link link-dark">
+                              <i class="bi bi-person-lines-fill"></i>
+                              Bimbingan Akademik
+                         </a>
+                    </li>
+                    <li class="nav-item">
                          <a href="dsn_editnilai.php" class="nav-link link-dark">
                               <i class="bi bi-journal-bookmark-fill"></i>
                               Input Nilai Mahasiswa
