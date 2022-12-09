@@ -41,7 +41,7 @@
 
 <head>
      <title>
-          WELCOME TO MY WEBSITE
+          SiAmi Teknik Elektro
      </title>
      <link rel="stylesheet" href="css/preloader.css">
 </head>
