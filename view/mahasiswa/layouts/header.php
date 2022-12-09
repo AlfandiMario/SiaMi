@@ -48,6 +48,12 @@
                          </a>
                     </li class="nav-item">
                     <li class="nav-item">
+                         <a href="daftarmhs.php" class="nav-link link-dark">
+                              <i class="bi bi-person-lines-fill"></i>
+                              Daftar Mahasiswa
+                         </a>
+                    </li class="nav-item">
+                    <li class="nav-item">
                          <a href="lihatnilai.php" class="nav-link link-dark">
                               <i class="bi bi-journal-bookmark-fill"></i>
                               Lihat Nilai
