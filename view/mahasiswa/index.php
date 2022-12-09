@@ -20,7 +20,7 @@ if ($_SESSION['role'] != 'mahasiswa') {
      <meta name="description" content="">
      <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
      <meta name="generator" content="Hugo 0.84.0">
-     <title>SiaLite</title>
+     <title>SiaMi</title>
 
      <!-- Bootstrap core CSS -->
      <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -41,6 +41,20 @@ if ($_SESSION['role'] != 'mahasiswa') {
                </a>
                <hr>
                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                         <a href="index.php" class="nav-link link-dark">
+                              <?php
+                              function getCurrentYear() {
+                                   return date("Y");
+                               }
+                               echo "Tahun saat ini: " . getCurrentYear() . "<br>";
+                               function getCurrentMonth() {
+                                   return date("F");
+                               }
+                               echo "Bulan saat ini: " . getCurrentMonth() . "<br>";
+                              ?>
+                         </a>
+                    </li>
                     <li class="nav-item">
                          <a href="index.php" class="nav-link link-dark">
                               <i class="bi bi-house-fill"> </i>

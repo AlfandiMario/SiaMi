@@ -27,7 +27,7 @@
           </div>
      </div>
      <?php
-     header("refresh:2;url=view/login.php") ?> -->
+     header("refresh:2;url=view/wellcome/dist/index.html") ?> -->
 
 <!-- </body> -->
 <!-- <script>
