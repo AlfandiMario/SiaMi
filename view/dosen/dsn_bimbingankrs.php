@@ -11,7 +11,7 @@ session_start();
 $nim_mhs = ($_GET["nim"]);
 $nama_mhs = ($_GET["nama"]);
 //$angkatan_mhs = ($_SESSION["angkatan"]);
-
+$nip = $_SESSION["nip"];
 if ($_SESSION['role'] != 'dosen') {
      $_SESSION['halaman'] = "dosen";
      header("Location: ../kick.php");
@@ -46,18 +46,66 @@ $judul = 'Lihat Nilai';
 </head>
 
 <body>
-     <main>
+<main>
           <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none mx-auto">
                     <i class="bi bi-boxes"></i>
                     <span class="fs-4">SiaMi</span>
                </a>
-               <hr>            
-                       
+               <hr>
+               <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                         <a href="index.php" class="nav-link link-dark">
+                              <i class="bi bi-house-fill"> </i>
+                              Home
+                         </a>
+                    </li>
+                    <li class="nav-item">
+                         <a href="dsn_daftarmk.php" class="nav-link link-dark">
+                              <i class="bi bi-card-checklist"></i>
+                              Daftar MK Tayang
+                         </a>
+                    </li>
+                    <li class="nav-item">
+                         <a href="dsn_daftardosen.php" class="nav-link link-dark">
+                              <i class="bi bi-person-lines-fill"></i>
+                              Daftar Dosen
+                         </a>
+                    </li class="nav-item">
+                    <li class="nav-item">
+                         <a href="dsn_daftarmhs.php" class="nav-link link-dark">
+                              <i class="bi bi-person-lines-fill"></i>
+                              Daftar Mahasiswa
+                         </a>
+                    </li class="nav-item">
+                    <li class="nav-item">
+                         <a href="dsn_bimbingan.php" class="nav-link link-dark">
+                              <i class="bi bi-person-lines-fill"></i>
+                              Bimbingan Akademik
+                         </a>
+                    </li>
+                    <li class="nav-item">
+                         <a href="dsn_editnilai.php" class="nav-link link-dark">
+                              <i class="bi bi-journal-bookmark-fill"></i>
+                              Input Nilai Mahasiswa
+                         </a>
+                    </li>
+               </ul>
+               <hr>
+               <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                         <i class="bi bi-person-circle"></i>
+                         <strong><?= $_SESSION["nama"]; ?></strong>
+                    </a>
+                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                         <li><a class="dropdown-item" href="../logout.php">Sign out</a></li>
+                    </ul>
+               </div>
           </div>
           <!-- Agar Sidebar Tingginya Full -->
           <div class="b-example-divider"></div>
-<div class="container-sm">
+          <div class="container-sm">
+                              
      <header>
           <h3>Kartu Rencana Studi</h3>
      </header>
