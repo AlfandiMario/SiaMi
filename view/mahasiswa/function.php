@@ -6,16 +6,31 @@ if (isset($_POST['ambil_mk'])) {
     $kode_mk = $_POST['kode_mk'];
     $kbk = $_POST['kategori'];
     $smt = $_POST['semester'];
-    $cek2 = cek_kategori($kbk, $nim);
     $cek1 = cek_smt($smt, $nim);
-    if ($cek2 && $cek1) {
-        $hasil_cek = cek($nim, $kode_mk);
-        if ($hasil_cek) {
-            tambah($nim, $kode_mk);
+    if ($cek1) {
+        $cek2 = cek_kategori($kbk, $nim);
+        if($cek2){
+            $hasil_cek = cek($nim, $kode_mk);
+            if ($hasil_cek) {
+                tambah($nim, $kode_mk);
+                }
         }
-    } else {
+    }else{
+        return;
     }
+        
+        
+
+    // if ($cek2 && $cek1) {
+    //     $hasil_cek = cek($nim, $kode_mk);
+    //     if ($hasil_cek) {
+    //         tambah($nim, $kode_mk);
+    //     }
+    // } else {
+    // }
+
 }
+
 if (isset($_POST['hapus_krs'])) {
     global $conn;
     $nim = $_POST['nim_mhs'];
