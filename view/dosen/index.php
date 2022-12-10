@@ -63,7 +63,7 @@ if ($_SESSION['role'] != 'dosen') {
                     </li class="nav-item">
                     <li class="nav-item">
                          <a href="dsn_bimbingan.php" class="nav-link link-dark">
-                              <i class="bi bi-person-lines-fill"></i>
+                              <i class="bi bi-people"></i>
                               Bimbingan Akademik
                          </a>
                     </li>

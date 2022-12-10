@@ -18,6 +18,12 @@
 
      <!-- Custom styles for this template -->
      <link href="../../css/ambilmk.css" rel="stylesheet">
+     <!-- Custom styles for this template -->
+     <link href="css/sb-admin-2.css" rel="stylesheet">
+     <!-- Custom styles for this page -->
+     <link href="datatables/dataTables.bootstrap4.css" rel="stylesheet">
+     <!-- Custom styles for this template -->
+     <link href="../../css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -55,7 +61,7 @@
                     </li class="nav-item">
                     <li class="nav-item">
                          <a href="lihatnilai.php" class="nav-link link-dark">
-                              <i class="bi bi-journal-bookmark-fill"></i>
+                              <i class="bi bi-journal-check"></i>
                               Lihat Nilai
                          </a>
                     </li>
@@ -63,6 +69,12 @@
                          <a href="ambilmk.php" class="nav-link link-dark">
                               <i class="bi bi-card-list"></i>
                               Ambil MK
+                         </a>
+                    </li>
+                    <li class="nav-item">
+                         <a href="krsmhs.php" class="nav-link link-dark">
+                              <i class="bi bi-journal-bookmark-fill"></i>
+                              KRS
                          </a>
                     </li>
                </ul>

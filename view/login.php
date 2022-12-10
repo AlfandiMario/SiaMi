@@ -26,10 +26,10 @@ if (isset($_POST["login"])) {
         $mhs = mysqli_fetch_assoc($datamhs);
         $nama = $mhs['nama'];
         $nim = $mhs['nim'];
-        $angkatan = $mhs['angkatan'];
+        $semester_mhs = $mhs['semester'];
         $_SESSION["nama"] = $nama;
         $_SESSION["nim"] = $nim;
-        $_SESSION["angkatan"] = $angkatan;
+        $_SESSION["semester_mhs"] = $semester_mhs;
       }
 
       $datadosen = mysqli_query($conn, "SELECT * from dosen WHERE nip='$nim_nip'");
@@ -96,7 +96,10 @@ if (isset($_POST["login"])) {
 <body class="text-center">
 
   <div class="login-box">
-    <h2>Login SiaMi</h2>
+    <h4 class="mt-4 mb-3">Login SiaMi Elektro UNS</h4>
+    <div class="container">
+      <img src="../img/logo-uns.png" alt="Logo UNS" class="img-fluid mb-5" style="max-width: 50px;">
+    </div>
     <form action="" method="POST">
       <div class="user-box">
         <input type="text" name="nim_nip" required="">

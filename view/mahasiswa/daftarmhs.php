@@ -1,10 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db = "si-uas";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $db);
+require '../../database/connect.php';
 
 session_start();
 if ($_SESSION['role'] != 'mahasiswa') {
