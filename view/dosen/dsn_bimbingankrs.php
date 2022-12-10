@@ -34,7 +34,7 @@ include 'layout/header.php';
                     <th scope="col">No</th>
                     <th scope="col">Kode Mata Kuliah</th>
                     <th scope="col">Mata Kuliah</th>
-                    <th scope="col">Nilai</th>
+                    <th scope="col" style="width: 15%;" class="text-center">Bobot SKS</th>
                </tr>
           </thead>
           <tbody>
@@ -45,9 +45,9 @@ include 'layout/header.php';
                ?>
                     <tr>
                          <td><?= $i++ ?></td>
-                         <td><?= $matkul["kode_mk"] ?></td>
+                         <td class="text-center"><?= $matkul["kode_mk"] ?></td>
                          <td><?= $matkul["nama_mk"] ?></td>
-                         <td><?= 0 ?></td>
+                         <td class="text-center"><?= $matkul["bobot_sks"] ?></td>
                     </tr>
 
                <?php
@@ -55,7 +55,7 @@ include 'layout/header.php';
           </tbody>
      </table>
      <?php
-     if (isset($_POST["validkan"])) {
+     if (isset($_POST["Validkan"])) {
           //Cek data apakah sudah diubah atau belum
           if (valid($_POST)  > 0) {
                echo "
@@ -78,7 +78,7 @@ include 'layout/header.php';
                <?php
                //$valid = "Valid";
                //$tdkvalid = "Belum Tervalidasi";
-               if ($validasi_krs['status_krs'] === "Valid") { ?>
+               if ($validasi_krs['status_krs'] == "VALID") { ?>
                     <input type="hidden" name="nim" value="<?= $validasi_krs['nim']; ?>">
                     <input type="hidden" name="nip" value="<?= $validasi_krs['nip'] ?>">
                     <input type="hidden" name="status_krs" value="Belum Tervalidasi">
@@ -86,7 +86,7 @@ include 'layout/header.php';
                <?php } else { ?>
                     <input type="hidden" name="nim" value="<?= $validasi_krs['nim']; ?>">
                     <input type="hidden" name="nip" value="<?= $validasi_krs['nip'] ?>">
-                    <input type="hidden" name="status_krs" value="Valid">
+                    <input type="hidden" name="status_krs" value="VALID">
                     <button type="submit" name="validkan">Validasi KRS</button>
                <?php } ?>
 

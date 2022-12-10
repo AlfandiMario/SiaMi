@@ -44,12 +44,13 @@ include 'layouts/header.php';
           <tbody>
                <?php
                $i = 1;
-               $jumlah = 0;
+               $jumlah_sks = 0;
 
-               while ($matkul = mysqli_fetch_array($mk_ambil)) {
+               while ($matkul = mysqli_fetch_assoc($mk_ambil)) {
                     $bobot = $matkul["bobot_sks"];
-                    $jumlah += $bobot;
-                    var_dump($bobot);
+                    $tunggal = intval($bobot);
+                    $jumlah_sks += $tunggal;
+
                ?>
                     <tr>
                          <td><?= $i++ ?></td>
@@ -68,13 +69,26 @@ include 'layouts/header.php';
                               </form>
                          </td>
                     </tr>
-               <?php } ?>
+               <?php }
+               ?>
+               <tr>
+                    <td> <?= '  ' ?> </td>
+                    <td> <?= '  ' ?> </td>
+                    <td style="font-weight: bold;"> Jumlah SKS </td>
+                    <td class="text-center" style="font-weight: bold;"> <?= $jumlah_sks ?> </td>
+                    <td> </td>
+               </tr>
           </tbody>
      </table>
 
      <form action="function.php" method="POST">
           <input type="hidden" name="nim_mhs" value="<?= $nim_mhs ?>">
-          <button type="submit" name="req_valid" class="btn btn-outline-dark"> Minta Validasi PA</button>
+          <?php if ($jumlah_sks > 24) { ?>
+               <button type="submit" name="req_valid" class="btn btn-outline-dark" disabled> Minta Validasi PA</button>
+               <p> Jumlah SKS Anda melebihi Batas (24 sks) </p>
+          <?php } else { ?>
+               <button type="submit" name="req_valid" class="btn btn-outline-dark"> Minta Validasi PA</button>
+          <?php } ?>
      </form>
 
 </div>
