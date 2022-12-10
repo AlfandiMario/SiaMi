@@ -40,15 +40,15 @@ include 'layouts/header.php';
                <input type="hidden" name="nim_lama" value="<?= $nim_lama ?>">
                <div class="mb-3">
                     <label for="nim" class="form-label">NIM</label>
-                    <input type="text" class="form-control" id="nim" name="nim" required value="<?= $nim_lama ?>">
+                    <input type="text" class="form-control" id="nim" name="nim" required value="<?= $nim_lama ?>" required>
                </div>
                <div class="mb-3">
                     <label for="nama_mhs" class="form-label">Nama Mahasiswa</label>
-                    <input type="text" class="form-control" id="nama_mhs" name="nama_mhs" required value="<?= $nama_mhs ?> ">
+                    <input type="text" class="form-control" id="nama_mhs" name="nama_mhs" required value="<?= $nama_mhs ?> " required>
                </div>
                <div class="mb-3">
                     <label for="semester_mhs" class="form-label">Semester</label>
-                    <select class="form-select" name="semester_mhs">
+                    <select class="form-select" name="semester_mhs" required>
                          <option selected value="<?= $semester_mhs ?>"> <?= $semester_mhs ?></option>
                          <?php
                          for ($i = 1; $i < 15; $i++) :
@@ -62,8 +62,18 @@ include 'layouts/header.php';
                     </select>
                </div>
                <div class="mb-3">
+                    <label for="kbk" class="form-label">KBK</label>
+                    <small>(Jika sudah memilih KBK)</small>
+                    <select class="form-select" name="kbk">
+                         <option value=""> </option>
+                         <option value="TKT"> Teknik Komputer dan Telekomunikasi (TKT) </option>
+                         <option value="TTL"> Teknik Tenaga Listrik (TTL) </option>
+                         <option value="KM"> Kontrol dan Mekatronika </option>
+                    </select>
+               </div>
+               <div class="mb-3">
                     <label for="dosen_pa">Dosen Pembimbing Akademik</label>
-                    <select class="form-select" name="dosen_pa">
+                    <select class="form-select" name="dosen_pa" required>
                          <option selected value="<?= $nip_pa ?>"> <?= $nama_pa . " (" . $nip_pa . ")" ?></option>
                          <?php
                          $i = 1;

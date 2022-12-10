@@ -68,10 +68,11 @@ if (isset($_POST['tambah'])) {
         $nama_mhs = $_POST['nama_mhs'];
         $semester_mhs = $_POST['semester_mhs'];
         $dosen_pa = $_POST['dosen_pa'];
+        $kbk = $_POST['kbk'];
         $data = 'mahasiswa';
         $hasil_cek = cek($data, '', '', '', $nim);
         if ($hasil_cek) {
-            tambah($data, '', '', '', '', '', '', $nim, $nama_mhs, $semester_mhs, $dosen_pa);
+            tambah($data, '', '', '', '', '', '', $nim, $nama_mhs, $semester_mhs, $dosen_pa, $kbk);
         }
     }
 };
@@ -132,6 +133,7 @@ if (isset($_POST['ubah'])) {
         $nama_mhs = $_POST['nama_mhs'];
         $semester_mhs = $_POST['semester_mhs'];
         $dosen_pa = $_POST['dosen_pa'];
+        $kbk = $_POST['kbk'];
         $hasil_cek = true;
         $data = 'mahasiswa';
 
@@ -139,7 +141,7 @@ if (isset($_POST['ubah'])) {
             $hasil_cek = cek($data, '', '', '', $nim);
         }
         if ($hasil_cek) {
-            update($data, '', '', '', '', '', '', '', '', $nim, $nim_lama, $nama_mhs, $semester_mhs, $dosen_pa);
+            update($data, '', '', '', '', '', '', '', '', $nim, $nim_lama, $nama_mhs, $semester_mhs, $dosen_pa, $kbk);
         }
     }
 }
@@ -177,7 +179,7 @@ function cek($data, $kode_mk = 0, $nama_mk = 0, $nip = 0, $nim = 0)
 
 
 
-function tambah($tambahapa, $kode_mk = 0, $nama_mk = 0, $NIP_pengampu = 0, $semester = 0, $nip = 0, $nama_dosen = 0, $nim = 0, $nama_mhs = 0, $semester_mhs = 0, $dosen_pa = 0,)
+function tambah($tambahapa, $kode_mk = 0, $nama_mk = 0, $NIP_pengampu = 0, $semester = 0, $nip = 0, $nama_dosen = 0, $nim = 0, $nama_mhs = 0, $semester_mhs = 0, $dosen_pa = 0, $kbk = 0)
 {
     global $conn;
     if ($tambahapa === 'mk') {
@@ -189,7 +191,7 @@ function tambah($tambahapa, $kode_mk = 0, $nama_mk = 0, $NIP_pengampu = 0, $seme
         $inputdsn = "INSERT INTO dosen VALUES ('','$nip','$nama_dosen',2)";
         mysqli_query($conn, $inputdsn);
     } else if ($tambahapa === 'mahasiswa') {
-        $input = "INSERT INTO mahasiswa VALUES ('','$nim','$nama_mhs','$semester_mhs',3)";
+        $input = "INSERT INTO mahasiswa VALUES ('','$nim','$nama_mhs','$semester_mhs','$kbk',3)";
         $input_pa = "INSERT INTO pa VALUES ('','$dosen_pa','$nim','')";
         mysqli_query($conn, $input);
         mysqli_query($conn, $input_pa);
@@ -211,7 +213,7 @@ function tambah($tambahapa, $kode_mk = 0, $nama_mk = 0, $NIP_pengampu = 0, $seme
     }
 }
 
-function update($updateapa, $kode_mk = 0, $nama_mk = 0, $NIP_pengampu = 0, $semester = 0, $kode_mklama = 0, $nip = 0, $nip_lama = 0, $nama_dosen = 0, $nim = 0, $nim_lama = 0, $nama_mhs = 0, $semester_mhs = 0, $dosen_pa = 0)
+function update($updateapa, $kode_mk = 0, $nama_mk = 0, $NIP_pengampu = 0, $semester = 0, $kode_mklama = 0, $nip = 0, $nip_lama = 0, $nama_dosen = 0, $nim = 0, $nim_lama = 0, $nama_mhs = 0, $semester_mhs = 0, $dosen_pa = 0, $kbk = 0)
 {
     global $conn;
     if ($updateapa === 'mk') {
@@ -226,7 +228,7 @@ function update($updateapa, $kode_mk = 0, $nama_mk = 0, $NIP_pengampu = 0, $seme
         mysqli_query($conn, $input);
     }
     if ($updateapa === 'mahasiswa') {
-        $input = "UPDATE mahasiswa SET nim ='$nim', nama = '$nama_mhs' , semester= '$semester_mhs' WHERE nim = '$nim_lama' ";
+        $input = "UPDATE mahasiswa SET nim ='$nim', nama = '$nama_mhs' , semester= '$semester_mhs', kbk = '$kbk' WHERE nim = '$nim_lama' ";
         mysqli_query($conn, $input);
         $input2 = "UPDATE pa SET nip = $dosen_pa, nim='$nim', status_krs = 'INVALID'  WHERE nim = '$nim_lama' ";
         mysqli_query($conn, $input2);

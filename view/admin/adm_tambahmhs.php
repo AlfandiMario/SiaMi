@@ -21,26 +21,37 @@ include 'layouts/header.php';
           <form action="function.php" method="post" enctype="multipart/form-data">
                <div class="mb-3">
                     <label for="nim" class="form-label">NIM</label>
-                    <input type="text" class="form-control" id="nim" name="nim">
+                    <input type="text" class="form-control" id="nim" name="nim" required>
                </div>
                <div class="mb-3">
                     <label for="nama_mhs" class="form-label">Nama Mahasiswa</label>
-                    <input type="text" class="form-control" id="nama_mhs" name="nama_mhs">
+                    <input type="text" class="form-control" id="nama_mhs" name="nama_mhs" required>
                </div>
                <div class="mb-3">
-                    <label for="angkatan" class="form-label">Semester</label>
-                    <select class="form-select" name="semester_mhs">
+                    <label for="semester" class="form-label">Semester</label>
+                    <select class="form-select" name="semester_mhs" required>
                          <?php
                          for ($i = 1; $i < 15; $i++) { ?>
-                              <option value="<?= $i ?>"> <?= $i ?> </option>
+                              <option value="<?= $i ?>" id=""> <?= $i ?> </option>
                          <?php
                          }
                          ?>
                     </select>
                </div>
                <div class="mb-3">
+                    <label for="kbk" class="form-label">KBK</label>
+                    <small>(Jika sudah memilih KBK)</small>
+                    <select class="form-select" name="kbk">
+                         <option value=""> </option>
+                         <option value="TKT"> Teknik Komputer dan Telekomunikasi (TKT) </option>
+                         <option value="TTL"> Teknik Tenaga Listrik (TTL) </option>
+                         <option value="KM"> Kontrol dan Mekatronika </option>
+                    </select>
+               </div>
+               <div class="mb-3">
                     <label for="pengampu">Dosen Pembimbing Akademik</label>
-                    <select class="form-select" name="dosen_pa">
+                    <select class="form-select" name="dosen_pa" required>
+                         <option> </option>
                          <?php
                          $i = 1;
                          while ($dosen = mysqli_fetch_assoc($daftardosen)) {

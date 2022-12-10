@@ -21,7 +21,7 @@ include 'layouts/header.php';
      <form action="function.php" method="post" enctype="multipart/form-data">
           <div class="mb-3">
                <label for="kode_mk" class="form-label">Kode MK</label>
-               <input type="text" class="form-control" id="kode_mk" name="kode_mk">
+               <input type="text" class="form-control" id="kode_mk" name="kode_mk" required>
           </div>
           <div class="mb-3">
                <label for="nama_mk" class="form-label">Nama MK</label>
@@ -29,7 +29,7 @@ include 'layouts/header.php';
           </div>
           <div class="mb-3">
                <label for="pengampu">Semester</label>
-               <select class="form-select" name="semester">
+               <select class="form-select" name="semester" required>
                     <option selected value="1"> 1 </option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -41,16 +41,19 @@ include 'layouts/header.php';
                </select>
           </div>
           <div class="mb-3">
-               <label for="kategori">Kategori Mata Kuliah</label>
+               <label for="kategori">Kategori MK KBK</label>
+               <small>(Jika termasuk MK KBK)</small>
                <select class="form-select" name="kategori">
-                    <option selected value="WAJIB"> Wajib </option>
-                    <option value="UMUM">Umum</option>
-                    <option value="KBK">KBK</option>
+                    <option </option>
+                    <option value=" "> Bukan MK KBK</option>
+                    <option value="TKT"> TKT </option>
+                    <option value="TTL"> TTL </option>
+                    <option value="KM"> KM </option>
                </select>
           </div>
           <div class="mb-3">
                <label for="bobot_sks">Bobot SKS</label>
-               <select class="form-select" name="bobot_sks">
+               <select class="form-select" name="bobot_sks" required>
                     <option selected value="1"> 1 </option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -63,7 +66,8 @@ include 'layouts/header.php';
           </div>
           <div class="mb-3">
                <label for="pengampu">Dosen Pengampu</label>
-               <select class="form-select" name="pengampu">
+               <select class="form-select" name="pengampu" required>
+                    <option value=" "> </option>
                     <?php
                     $i = 1;
                     while ($dosen = mysqli_fetch_assoc($daftardosen)) {

@@ -36,11 +36,11 @@ include 'layouts/header.php';
           <input type="hidden" name="kode_mklama" value="<?= $kodemk_lama ?>">
           <div class="mb-3">
                <label for="kode_mk" class="form-label">Kode MK</label>
-               <input type="text" class="form-control" id="kode_mk" name="kode_mk" required value="<?= $kodemk_lama ?>">
+               <input type="text" class="form-control" id="kode_mk" name="kode_mk" required value="<?= $kodemk_lama ?>" required>
           </div>
           <div class="mb-3">
                <label for="nama_mk" class="form-label">Nama MK</label>
-               <input type="text" class="form-control" id="nama_mk" name="nama_mk" required value="<?= $nama_mk ?> ">
+               <input type="text" class="form-control" id="nama_mk" name="nama_mk" required value="<?= $nama_mk ?> " required>
           </div>
           <div class="mb-3">
                <label for="pengampu">Semester</label>
@@ -58,16 +58,27 @@ include 'layouts/header.php';
                </select>
           </div>
           <div class="mb-3">
+               <label for="kategori">Kategori MK KBK</label>
+               <small>(Jika termasuk MK KBK)</small>
+               <select class="form-select" name="kategori">
+                    <option </option>
+                    <option value=" "> Bukan MK KBK</option>
+                    <option value="TKT"> TKT </option>
+                    <option value="TTL"> TTL </option>
+                    <option value="KM"> KM </option>
+               </select>
+          </div>
+          <!-- <div class="mb-3">
                <label for="kategori">Kategori Mata Kuliah</label>
                <select class="form-select" name="kategori">
                     <option selected value="WAJIB"> Wajib </option>
                     <option value="UMUM">Umum</option>
                     <option value="KBK">KBK</option>
                </select>
-          </div>
+          </div> -->
           <div class="mb-3">
                <label for="bobot_sks">Bobot SKS</label>
-               <select class="form-select" name="bobot_sks">
+               <select class="form-select" name="bobot_sks" required>
                     <option selected value="<?= $bobot_sks ?>"> <?= $bobot_sks ?> </option>
                     <?php for ($i = 0; $i < 9; $i++) :
                          if ($bobot_sks != $i) :
@@ -77,9 +88,10 @@ include 'layouts/header.php';
                     endfor; ?>
                </select>
           </div>
+
           <div class="mb-3">
                <label for="pengampu">Dosen Pengampu</label>
-               <select class="form-select" name="pengampu">
+               <select class="form-select" name="pengampu" required>
                     <option selected value="<?= $pengampu ?>"> <?= $nama_pengampu . " (" . $pengampu . ")" ?> </option>
                     <?php
                     // var_dump($pengampu);
