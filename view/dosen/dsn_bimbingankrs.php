@@ -55,12 +55,27 @@ include 'layout/header.php';
           </tbody>
      </table>
      <?php
-     if (isset($_POST["Validkan"])) {
+     if (isset($_POST["validkan"])) {
           //Cek data apakah sudah diubah atau belum
           if (valid($_POST)  > 0) {
                echo "
             <script>
             alert ('Ubah Validasi Berhasil!');
+            document.location.href = 'dsn_bimbingan.php';
+            </script>";
+          } else {
+               echo "
+            <script>
+            alert ('gagal!');
+            </script>";
+          }
+     }
+     if (isset($_POST["tolakvalid"])) {
+          //Cek data apakah sudah diubah atau belum
+          if (valid($_POST)  > 0) {
+               echo "
+            <script>
+            alert ('KRS Ditolak!');
             document.location.href = 'dsn_bimbingan.php';
             </script>";
           } else {
@@ -78,16 +93,25 @@ include 'layout/header.php';
                <?php
                //$valid = "Valid";
                //$tdkvalid = "Belum Tervalidasi";
-               if ($validasi_krs['status_krs'] == "VALID") { ?>
-                    <input type="hidden" name="nim" value="<?= $validasi_krs['nim']; ?>">
-                    <input type="hidden" name="nip" value="<?= $validasi_krs['nip'] ?>">
-                    <input type="hidden" name="status_krs" value="Belum Tervalidasi">
-                    <button type="submit" name="validkan">Batalkan Validasi KRS</button>
-               <?php } else { ?>
+               if ($validasi_krs['status_krs'] == "INVALID") { ?>
                     <input type="hidden" name="nim" value="<?= $validasi_krs['nim']; ?>">
                     <input type="hidden" name="nip" value="<?= $validasi_krs['nip'] ?>">
                     <input type="hidden" name="status_krs" value="VALID">
-                    <button type="submit" name="validkan">Validasi KRS</button>
+                    <button type="submit" name="validkan" class="btn btn-outline-dark">Validasi KRS</button>
+               <?php } else if($validasi_krs['status_krs'] == "REQUEST"){ ?>
+                    <input type="hidden" name="nim" value="<?= $validasi_krs['nim']; ?>">
+                    <input type="hidden" name="nip" value="<?= $validasi_krs['nip'] ?>">
+                    <input type="hidden" name="status_krs" value="VALID">
+                    <button type="submit" name="validkan" class="btn btn-outline-dark">Validasi KRS</button>
+                    <input type="hidden" name="nim" value="<?= $validasi_krs['nim']; ?>">
+                    <input type="hidden" name="nip" value="<?= $validasi_krs['nip'] ?>">
+                    <input type="hidden" name="status_krs" value="INVALID">
+                    <button type="submit" name="tolakvalid" class="btn btn-outline-dark">KRS Tidak Valid</button>
+                                   <?php } else { ?>
+                    <input type="hidden" name="nim" value="<?= $validasi_krs['nim']; ?>">
+                    <input type="hidden" name="nip" value="<?= $validasi_krs['nip'] ?>">
+                    <input type="hidden" name="status_krs" value="INVALID">
+                    <button type="submit" name="validkan" class="btn btn-sm btn-outline-danger mx-auto">Batalkan Validasi KRS</button>
                <?php } ?>
 
           </form>
