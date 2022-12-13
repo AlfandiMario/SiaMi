@@ -6,7 +6,7 @@ if ($_SESSION['role'] != 'admin') {
      header("Location: ../kick.php");
 };
 
-$daftardosen = mysqli_query($conn, "SELECT * FROM dosen ORDER BY nip ASC");
+$daftardosen = mysqli_query($conn, "SELECT * FROM dosen ORDER BY nama DESC");
 
 $judul = "Tambah Mahasiswa";
 include 'layouts/header.php';
@@ -21,7 +21,7 @@ include 'layouts/header.php';
           <form action="function.php" method="post" enctype="multipart/form-data">
                <div class="mb-3">
                     <label for="nim" class="form-label">NIM</label>
-                    <input type="text" class="form-control" id="nim" name="nim" required>
+                    <input type="text" class="form-control" id="nim" name="nim" required autofocus>
                </div>
                <div class="mb-3">
                     <label for="nama_mhs" class="form-label">Nama Mahasiswa</label>

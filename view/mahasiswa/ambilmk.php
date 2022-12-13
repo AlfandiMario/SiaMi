@@ -28,6 +28,7 @@ include 'layouts/header.php';
                     <th scope="col">Nama MK</th>
                     <th scope="col">Semester</th>
                     <th scope="col">Pengampu</th>
+                    <th scope="col">Bobot</th>
                     <th scope="col">Aksi</th>
                </tr>
           </thead>
@@ -43,6 +44,7 @@ include 'layouts/header.php';
                          <td><?= $mk["nama_mk"] ?></td>
                          <td><?= $mk["semester"] ?></td>
                          <td><?= $mk["nama"] ?></td>
+                         <td><?= $mk["bobot_sks"] . " SKS" ?></td>
                          <form action="function.php" method="POST">
                               <input type="hidden" name="nim_mhs" value="<?= $_SESSION['nim'] ?>">
                               <input type="hidden" name="kode_mk" value="<?= $mk['kode_mk'] ?>">

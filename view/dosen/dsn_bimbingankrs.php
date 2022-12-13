@@ -71,6 +71,7 @@ include 'layout/header.php';
           }
      }
      if (isset($_POST["tolakvalid"])) {
+          $_POST["status_krs"] = $_POST["status_krs2"];
           //Cek data apakah sudah diubah atau belum
           if (valid($_POST)  > 0) {
                echo "
@@ -98,16 +99,17 @@ include 'layout/header.php';
                     <input type="hidden" name="nip" value="<?= $validasi_krs['nip'] ?>">
                     <input type="hidden" name="status_krs" value="VALID">
                     <button type="submit" name="validkan" class="btn btn-outline-dark">Validasi KRS</button>
-               <?php } else if($validasi_krs['status_krs'] == "REQUEST"){ ?>
+               <?php } else if ($validasi_krs['status_krs'] == "REQUEST") { ?>
                     <input type="hidden" name="nim" value="<?= $validasi_krs['nim']; ?>">
                     <input type="hidden" name="nip" value="<?= $validasi_krs['nip'] ?>">
                     <input type="hidden" name="status_krs" value="VALID">
                     <button type="submit" name="validkan" class="btn btn-outline-dark">Validasi KRS</button>
+
                     <input type="hidden" name="nim" value="<?= $validasi_krs['nim']; ?>">
                     <input type="hidden" name="nip" value="<?= $validasi_krs['nip'] ?>">
-                    <input type="hidden" name="status_krs" value="INVALID">
+                    <input type="hidden" name="status_krs2" value="INVALID">
                     <button type="submit" name="tolakvalid" class="btn btn-outline-dark">KRS Tidak Valid</button>
-                                   <?php } else { ?>
+               <?php } else { ?>
                     <input type="hidden" name="nim" value="<?= $validasi_krs['nim']; ?>">
                     <input type="hidden" name="nip" value="<?= $validasi_krs['nip'] ?>">
                     <input type="hidden" name="status_krs" value="INVALID">

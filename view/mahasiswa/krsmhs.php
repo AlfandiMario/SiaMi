@@ -12,10 +12,14 @@ if ($_SESSION['role'] != 'mahasiswa') {
      header("Location: ../kick.php");
 };
 
-$cek_krs = mysqli_query($conn, "SELECT status_krs FROM pa WHERE nim = '$nim_mhs'");
+$cek_krs = mysqli_query($conn, "SELECT * FROM pa WHERE nim = '$nim_mhs'");
 $result = mysqli_fetch_assoc($cek_krs);
 $status_krs = $result["status_krs"];
+$nip_pa = $result["nip"];
 
+$dosen = mysqli_query($conn, "SELECT nama FROM dosen WHERE nip = '$nip_pa'");
+$hasil = mysqli_fetch_assoc($dosen);
+$nama_pa = $hasil["nama"];
 // Untuk menampilkan lihat nilai sesuai MK yang diambil
 $mk_ambil = mysqli_query($conn, "SELECT * FROM mk_diambil INNER JOIN mk ON mk_diambil.kode_mk=mk.kode_mk WHERE mk_diambil.nim_mhs = '$nim_mhs'");
 $judul = 'Kartu Rencana Studi';
@@ -30,8 +34,9 @@ include 'layouts/header.php';
      <h6>Nama : <?= $nama_mhs ?> </h6>
      <h6>NIM : <?= $nim_mhs; ?> </h6>
      <h6>Semester : <?= $semester; ?> </h6>
+     <h6>Pembimbing Akademik : <?= $nama_pa; ?> </h6>
 
-     <table class="table table-bordered" width="100%" cellspacing="0">
+     <table class="table table-bordered mt-5" width="100%" cellspacing="0">
           <thead>
                <tr>
                     <th scope="col" style="width: 10%;">No</th>
@@ -86,6 +91,9 @@ include 'layouts/header.php';
           <?php if ($jumlah_sks > 24) { ?>
                <button type="submit" name="req_valid" class="btn btn-outline-dark" disabled> Minta Validasi PA</button>
                <p> Jumlah SKS Anda melebihi Batas (24 sks) </p>
+          <?php } else if ($jumlah_sks == 0) { ?>
+               <button type="submit" name="req_valid" class="btn btn-outline-dark" disabled> Minta Validasi PA</button>
+               <p> Anda belum mengambil Mata Kuliah </p>
           <?php } else { ?>
                <button type="submit" name="req_valid" class="btn btn-outline-dark"> Minta Validasi PA</button>
           <?php } ?>

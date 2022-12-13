@@ -25,6 +25,8 @@ include 'layouts/header.php';
                     <th scope="col">NIM</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Semester</th>
+                    <!-- <th scope="col">KBK</th>
+                    <th scope="col">Pengampu</th> -->
                     <th scope="col">Aksi</th>
 
                     <!-- <th scope="col">Mata Kuliah Diampu</th> -->
