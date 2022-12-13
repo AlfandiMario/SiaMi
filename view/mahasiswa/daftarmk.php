@@ -21,13 +21,14 @@ include 'layouts/header.php';
      </header>
      <hr>
      <table class="table table-bordered" width="100%" cellspacing="0">
-          <thead>
+          <thead class="text-center">
                <tr>
                     <th scope="col">No</th>
                     <th scope="col">Kode MK</th>
                     <th scope="col">Nama MK</th>
                     <th scope="col">Semester</th>
                     <th scope="col">Pengampu</th>
+                    <th scope="col">Bobot</th>
                </tr>
           </thead>
           <tbody>
@@ -38,11 +39,11 @@ include 'layouts/header.php';
                ?>
                     <tr>
                          <td><?= $i++ ?></td>
-                         <td><?= $mk["kode_mk"] ?></td>
+                         <td class="text-center"><?= $mk["kode_mk"] ?></td>
                          <td><?= $mk["nama_mk"] ?></td>
-                         <td><?= $mk["semester"] ?></td>
+                         <td class="text-center"><?= $mk["semester"] ?></td>
                          <td><?= $mk["nama"] ?></td>
-                         <!-- <td></td> -->
+                         <td class="text-center"><?= $mk["bobot_sks"] . " SKS" ?></td>
                     </tr>
 
                <?php

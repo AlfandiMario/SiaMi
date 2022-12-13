@@ -20,13 +20,13 @@ include 'layout/header.php';
      </header>
      <hr>
      <table class="table table-bordered" width="100%" cellspacing="0">
-          <thead>
+          <thead class="text-center">
                <tr>
                     <th scope="col">No</th>
                     <th scope="col">NIM</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">Angkatan</th>
-                    <!-- <th scope="col">Mata Kuliah Diampu</th> -->
+                    <th scope="col">Semester</th>
+                    <th scope="col">Dosen PA</th>
                </tr>
           </thead>
           <tbody>
@@ -34,13 +34,17 @@ include 'layout/header.php';
                $i = 1;
 
                while ($mhs = mysqli_fetch_array($daftarmhs)) {
+                    $nim = $mhs["nim"];
+                    $query = mysqli_query($conn, "SELECT * FROM pa INNER JOIN dosen on pa.nip=dosen.nip WHERE pa.nim = '$nim'");
+                    $result = mysqli_fetch_assoc($query);
+                    $nama_pa = $result["nama"];
                ?>
                     <tr>
-                         <td><?= $i++ ?></td>
-                         <td><?= $mhs["nim"] ?></td>
-                         <td><?= $mhs["nama"] ?></td>
-                         <td><?= $mhs["semester"] ?></td>
-                         <!-- <td></td> -->
+                         <td style="width: 7%;" class="text-center"><?= $i++ ?></td>
+                         <td style="width: 15%;"><?= $mhs["nim"] ?></td>
+                         <td style="width: 25%;"><?= $mhs["nama"] ?></td>
+                         <td style="width: 10%;" class="text-center"><?= $mhs["semester"] ?></td>
+                         <td style="width: 30%;"><?= $result["nama"] ?></td>
                     </tr>
 
                <?php

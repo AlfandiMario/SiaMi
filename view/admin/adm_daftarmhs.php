@@ -25,6 +25,7 @@ include 'layouts/header.php';
                     <th scope="col">NIM</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Semester</th>
+                    <th scope="col">Dosen PA</th>
                     <!-- <th scope="col">KBK</th>
                     <th scope="col">Pengampu</th> -->
                     <th scope="col">Aksi</th>
@@ -37,12 +38,17 @@ include 'layouts/header.php';
                $i = 1;
 
                while ($mhs = mysqli_fetch_array($daftarmhs)) {
+                    $nim = $mhs["nim"];
+                    $query = mysqli_query($conn, "SELECT * FROM pa INNER JOIN dosen on pa.nip=dosen.nip WHERE pa.nim = '$nim'");
+                    $result = mysqli_fetch_assoc($query);
+                    $nama_pa = $result["nama"];
                ?>
                     <tr>
-                         <td><?= $i++ ?></td>
-                         <td><?= $mhs["nim"] ?></td>
-                         <td><?= $mhs["nama"] ?></td>
-                         <td><?= $mhs["semester"] ?></td>
+                         <td style="width: 10%;"><?= $i++ ?></td>
+                         <td style="width: 20%;"><?= $mhs["nim"] ?></td>
+                         <td style="width: 30%;"><?= $mhs["nama"] ?></td>
+                         <td style="width: 10%;"><?= $mhs["semester"] ?></td>
+                         <td style="width: 20%;"><?= $result["nama"] ?></td>
 
                          <!-- <td></td> -->
                          <td>

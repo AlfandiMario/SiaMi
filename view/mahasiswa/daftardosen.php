@@ -35,7 +35,7 @@ include 'layouts/header.php';
                ?>
                     <tr>
                          <td><?= $i++ ?></td>
-                         <td><?= $dosen["nip"] ?></td>
+                         <td class="text-center"><?= $dosen["nip"] ?></td>
                          <td><?= $dosen["nama"] ?></td>
                          <!-- <td></td> -->
                     </tr>
