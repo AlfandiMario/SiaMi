@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2022 at 08:16 AM
+-- Generation Time: Dec 13, 2022 at 08:04 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -62,7 +62,7 @@ INSERT INTO `dosen` (`id`, `nip`, `nama`, `role_id`) VALUES
 (2, '199203152019031017', 'Agus Ramelan, S.Pd., M.T', 2),
 (3, '198705062019031009', 'Sutrisno, S.T., M.Sc, Ph.D.', 2),
 (4, '197711162005011008', 'Dr.Eng. Faisal Rahutomo S.T.,M.Kom.', 2),
-(5, '197705132009121004', 'Meiyanto Eko Sulistyo S.T., M.Eng.	', 2),
+(5, '197705132009121004', 'Ir. Meiyanto Eko Sulistyo S.T., M.Eng.	 ', 2),
 (6, '1970062520200801', 'Prof. Josaphat Tetuko Sri Sumantyo Ph.D.', 2),
 (7, '196801161999031001', 'Feri Adriyanto S.Pd., M.Si., Ph.D.', 2),
 (8, '197609232006041004', 'Joko Hariyono	S.T., M.Eng., Ph.D.', 2),
@@ -85,6 +85,7 @@ CREATE TABLE `mahasiswa` (
   `nim` varchar(255) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `semester` int(3) NOT NULL,
+  `kbk` varchar(255) NOT NULL,
   `role_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -92,13 +93,21 @@ CREATE TABLE `mahasiswa` (
 -- Dumping data for table `mahasiswa`
 --
 
-INSERT INTO `mahasiswa` (`id`, `nim`, `nama`, `semester`, `role_id`) VALUES
-(1, 'I0720013', 'Baharuddin Dias', 2020, 3),
-(2, 'I0720006', 'Asri Aziziyah', 2020, 3),
-(3, 'I0720037', 'Mario Alfandi Wirawan', 2020, 3),
-(4, 'I0720065', 'Ridho Priambodo', 2020, 3),
-(5, 'I0720003', 'Anna Mayyah Soraya', 2020, 3),
-(6, 'I0720020', 'Enggar Nurcahyo', 2020, 3);
+INSERT INTO `mahasiswa` (`id`, `nim`, `nama`, `semester`, `kbk`, `role_id`) VALUES
+(17, 'I0720001', 'Adhitya Fajar Rachmadi', 5, 'KM', 3),
+(18, 'I0720002', 'Anas Hibatullah', 5, 'KM', 3),
+(19, 'I0720003', 'Anna Mayyah Soraya', 5, 'TKT', 3),
+(20, 'I0720005', 'Arya Zifa Muharman', 5, 'TKT', 3),
+(21, 'I0720006', 'Asri Aziziyah', 5, 'TKT', 3),
+(22, 'I0720012', 'Bagus Putra Nugraha', 5, 'TKT', 3),
+(23, 'I0720020', 'Enggar Nurcahyo', 5, 'TKT', 3),
+(24, 'I0720021', 'Fauzan Wakhid Mukhtarom', 5, 'TKT', 3),
+(25, 'I0720026', 'Hendrawan Purnomoaji', 5, 'TTL', 3),
+(26, 'I0720037', 'Mario Alfandi Wirawan ', 5, 'TKT', 3),
+(27, 'I0721001', 'Affan Islahuddin', 3, '', 3),
+(28, 'I0721002', 'Aflahal Fahmi', 3, '', 3),
+(29, 'I0722001', 'Abdee Ridho Pramono', 1, '', 3),
+(30, 'I0722002', 'Abimanyu Putra Akbar', 1, '', 3);
 
 -- --------------------------------------------------------
 
@@ -121,16 +130,17 @@ CREATE TABLE `mk` (
 --
 
 INSERT INTO `mk` (`id`, `kode_mk`, `nama_mk`, `NIP_pengampu`, `semester`, `kategori`, `bobot_sks`) VALUES
-(1, 'EE1504-19', 'Mesin Listrik Lanjut', '199203152019031017', 5, '', 0),
-(8, 'EE502-19', 'Mekatronika ', '198904242019031013', 5, '', 0),
-(9, 'EE503-19', 'Praktikum Telekomunikasi Dasar ', '197705132009121004', 5, '', 0),
-(10, 'EE504-19', 'Praktikum Sistem Kendali ', '197609232006041004', 5, '', 0),
-(11, 'EE505-19', 'Proyek Kreatif II ', '198904242019031013', 5, '', 0),
-(12, 'EE3501-19', 'Antena dan Propagasi ', '1970062520200801', 5, '', 0),
-(13, 'EE3502-19', 'Sistem Tertanam dan Periferal ', '197711162005011008', 5, '', 0),
-(14, 'EE3503-19', 'Pengolahan Isyarat Digital ', '197705132009121004', 5, '', 0),
-(15, 'EE3504-19', 'Algoritma dan Struktur Data ', '197711162005011008', 5, '', 0),
-(16, 'EE3505-19', 'Sistem Informasi ', '198705062019031009', 5, '', 0);
+(20, 'EE501-19', 'Jaringan Komunikasi Data ', '197711162005011008', 5, '', 2),
+(22, 'EE503-19', 'Praktikum Telekomunikasi Dasar', '197705132009121004', 5, '', 1),
+(24, 'EE1501-19', 'Pembangkitan Tenaga Listrik ', '197007201999031001', 5, 'TTL', 3),
+(25, 'EE1502-19', 'Transmisi dan Distribusi Tenaga Listrik ', '1983032420130201', 5, 'TTL', 3),
+(26, 'EE2501-19', 'Sistem Otomasi dan PLC ', '198904242019031013', 5, 'KM', 3),
+(27, 'EE2502-19', 'Teknik Robot ', '198904242019031013', 5, 'KM', 2),
+(28, 'EE3501-19', 'Antena dan Propagasi ', '1970062520200801', 5, 'TKT', 3),
+(29, 'EE3505-19', 'Sistem Informasi ', '198705062019031009', 5, 'TKT', 2),
+(30, 'EE3601-19', 'Telekomunikasi Lanjut ', '197705132009121004', 6, 'TKT', 3),
+(31, 'EE0301-19', 'Metode Numerik', '198705062019031009', 3, '', 3),
+(32, 'EE0101-19', 'Kalkulus I', '197711162005011008', 1, '', 3);
 
 -- --------------------------------------------------------
 
@@ -150,65 +160,9 @@ CREATE TABLE `mk_diambil` (
 --
 
 INSERT INTO `mk_diambil` (`id`, `nim_mhs`, `kode_mk`, `nilai_mk`) VALUES
-(1, 'I0720037', 'EE301', 0),
-(2, 'I0720037', 'EE502', 0),
-(3, 'I0720006', 'EE302', 5),
-(4, 'I0720013', 'EE505', 3),
-(5, 'I0720037', 'EE506', 0),
-(6, 'I0720006', 'EE601', 4),
-(17, 'I0720037', 'EE401', 0),
-(18, 'I0720037', 'EE3505-19', 0),
-(19, 'I0720037', 'EE3504-19', 0),
-(20, 'I0720037', 'EE3502-19', 0),
-(21, 'I0720037', 'EE1504-19', 0),
-(22, 'I0720037', 'EE505-19', 0),
-(23, 'I0720006', 'EE3502-19', 0),
-(24, 'I0720006', 'EE3501-19', 0),
-(25, 'I0720006', 'EE3504-19', 0),
-(26, 'I0720006', 'EE3503-19', 0),
-(27, 'I0720006', 'EE503-19', 0),
-(28, 'I0720006', 'EE504-19', 0),
-(29, 'I0720006', 'EE505-19', 0),
-(30, 'I0720006', 'EE3505-19', 0),
-(31, 'I0720065', 'EE3502-19', 0),
-(32, 'I0720065', 'EE3504-19', 0),
-(33, 'I0720065', 'EE3501-19', 0),
-(34, 'I0720065', 'EE1504-19', 0),
-(35, 'I0720065', 'EE3503-19', 0),
-(36, 'I0720065', 'EE3505-19', 0),
-(37, 'I0720065', 'EE502-19', 0),
-(38, 'I0720065', 'EE503-19', 0),
-(39, 'I0720065', 'EE504-19', 0),
-(40, 'I0720065', 'EE505-19', 0),
-(41, 'I0720013', 'EE1504-19', 0),
-(42, 'I0720013', 'EE3501-19', 0),
-(43, 'I0720013', 'EE3502-19', 0),
-(44, 'I0720013', 'EE3503-19', 0),
-(45, 'I0720013', 'EE3504-19', 0),
-(46, 'I0720013', 'EE3505-19', 0),
-(47, 'I0720013', 'EE502-19', 0),
-(48, 'I0720013', 'EE503-19', 0),
-(49, 'I0720013', 'EE504-19', 0),
-(50, 'I0720013', 'EE505-19', 0),
-(51, 'I0720020', 'EE1504-19', 0),
-(52, 'I0720020', 'EE3501-19', 0),
-(53, 'I0720020', 'EE3502-19', 0),
-(54, 'I0720020', 'EE3503-19', 0),
-(55, 'I0720020', 'EE3504-19', 0),
-(56, 'I0720020', 'EE502-19', 0),
-(57, 'I0720020', 'EE503-19', 0),
-(58, 'I0720020', 'EE504-19', 0),
-(59, 'I0720020', 'EE505-19', 0),
-(60, 'I0720003', 'EE1504-19', 0),
-(61, 'I0720003', 'EE3501-19', 0),
-(62, 'I0720003', 'EE3502-19', 0),
-(63, 'I0720003', 'EE3503-19', 0),
-(64, 'I0720003', 'EE3504-19', 0),
-(65, 'I0720003', 'EE3505-19', 0),
-(66, 'I0720003', 'EE502-19', 0),
-(67, 'I0720003', 'EE503-19', 0),
-(68, 'I0720003', 'EE504-19', 0),
-(69, 'I0720003', 'EE505-19', 0);
+(76, 'I0720037', 'EE503-19', 0),
+(77, 'I0720037', 'EE501-19', 4),
+(78, 'I0720037', 'EE3505-19', 0);
 
 -- --------------------------------------------------------
 
@@ -222,6 +176,26 @@ CREATE TABLE `pa` (
   `nim` varchar(255) NOT NULL,
   `status_krs` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pa`
+--
+
+INSERT INTO `pa` (`id`, `nip`, `nim`, `status_krs`) VALUES
+(13, '197711162005011008', 'I0720001', ''),
+(14, '197711162005011008', 'I0720002', ''),
+(15, '197711162005011008', 'I0720003', ''),
+(16, '197711162005011008', 'I0720005', ''),
+(17, '197711162005011008', 'I0720006', ''),
+(18, '197711162005011008', 'I0720012', ''),
+(19, '197007201999031001', 'I0720020', ''),
+(20, '197007201999031001', 'I0720021', ''),
+(21, '199203152019031017', 'I0720026', ''),
+(22, '197711162005011008', 'I0720037', 'VALID'),
+(23, '196801161999031001', 'I0721001', ''),
+(24, '196801161999031001', 'I0721002', ''),
+(25, '196801161999031001', 'I0722001', ''),
+(26, '196801161999031001', 'I0722002', '');
 
 -- --------------------------------------------------------
 
@@ -270,7 +244,8 @@ INSERT INTO `user` (`id`, `nim_nip`, `password`, `role_id`) VALUES
 (12, 'I0720013', '$2y$10$g6vy1up9dPx4rubPG9CZ3.SY2s674CRCTgu5v0Xz/0G6ukncJjhV2', 3),
 (13, 'I0720065', '$2y$10$R5vK93nnJtLxfJBmsBVmjOu7mualWJgzIbcnPubCe4Hes.wd8Ik6m', 3),
 (14, 'I0720020', '$2y$10$jPvBWUySz/arDfbSpoaZbukhU89Mkl2A3b0/XiaukSD.KYR/NsES2', 3),
-(15, 'I0720003', '$2y$10$nDbIOegy7RtRHVMcuvRukeFYhQ2X2kOJG/5TGz/j22FmgqTT5SdDK', 3);
+(15, 'I0720003', '$2y$10$nDbIOegy7RtRHVMcuvRukeFYhQ2X2kOJG/5TGz/j22FmgqTT5SdDK', 3),
+(16, 'I0720002', '$2y$10$xMHjARvvHn6WqZQsUNsqUOSrJjePHShV1WvELixe0M/.u6wFhGTm6', 3);
 
 --
 -- Indexes for dumped tables
@@ -344,25 +319,25 @@ ALTER TABLE `dosen`
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `mk`
 --
 ALTER TABLE `mk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `mk_diambil`
 --
 ALTER TABLE `mk_diambil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `pa`
 --
 ALTER TABLE `pa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -374,7 +349,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
